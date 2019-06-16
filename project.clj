@@ -12,10 +12,11 @@
 
   :source-paths ["src"]
 
-  :aliases {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
-            "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]
-            "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
-            "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" juxt-edge.test-runner]}
+  :aliases {"fig"        ["trampoline" "run" "-m" "figwheel.main"]
+            "fig:build"  ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]
+            "fig:min"    ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
+            "fig:deploy" ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "deploy"]
+            "fig:test"   ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" juxt-edge.test-runner]}
 
   :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.1.9"]
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]]
