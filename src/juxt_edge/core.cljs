@@ -3,21 +3,34 @@
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]))
 
-(println "This text is printed from src/juxt_edge/core.cljs. Go ahead and edit it and see reloading in action.")
+;; Basic application reloading logging
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn multiply [a b] (* a b))
+;; Use Google clojure data function to date-time stamp on each application reload
 
+(println (js/Date.) "JUXT Edge application updated")
+
+
+;; Application state
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; define your app data so that it doesn't get over-written on reload
 (defonce app-state (atom {:text "Hello world!"}))
 
-(defn get-app-element []
-  (gdom/getElement "app"))
+;; Components
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
    [:h3 "Edit this in src/juxt_edge/core.cljs and watch it change!"]])
+
+
+;; System
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defn get-app-element []
+  (gdom/getElement "app"))
 
 (defn mount [el]
   (reagent/render-component [hello-world] el))
